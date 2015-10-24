@@ -1,0 +1,97 @@
+
+body{
+  box-sizing: border-box;
+}
+/*
+  Header
+*/ 
+.header{
+  width: 100%;
+}
+.vertical{
+    display: table-cell;
+    vertical-align: middle;
+}
+.header-name{
+
+}
+.header-info{
+
+}
+
+  /*
+    Header-Main
+  */
+@media only screen and (max-width: 500px)
+.home-header{
+  height: 40%;
+
+}
+@media only screen and (max-width: 900px)
+.home-header{
+  min-height: 240px;
+}
+.home-header{
+  height: 100%;
+}
+  /*
+    Navigation
+  */
+
+/*
+  Home
+*/
+  /*
+    Home-About
+  */
+
+
+
+
+  /*
+    Home-Contact
+  */
+
+
+
+
+/*
+
+End Home
+
+*/
+
+
+/*
+  Blog
+*/
+  /*
+    Blog-Main
+  */
+
+
+
+
+
+  /*
+    Blog-Article
+  */
+
+
+
+
+/*
+
+End Blog
+
+*/
+
+
+/*
+  Projects
+*/
+
+
+
+
+
