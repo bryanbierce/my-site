@@ -1,42 +1,112 @@
-
-body{
-  box-sizing: border-box;
-}
 /*
-  Header
-*/ 
+  Reset CSS
+*/
+html{
+  height: 100%;
+}
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+  display: block;
+}
+body {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  line-height: 1;
+}
+ol, ul {
+  list-style: none;
+}
+blockquote, q {
+  quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+  content: '';
+  content: none;
+}
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+/*
+  My CSS
+*/
+a{
+  text-decoration: none;
+}
 .header{
   width: 100%;
-}
-.vertical{
-    display: table-cell;
-    vertical-align: middle;
-}
-.header-name{
-
-}
-.header-info{
-
-}
-
-  /*
-    Header-Main
-  */
-@media only screen and (max-width: 500px)
-.home-header{
-  height: 40%;
-
-}
-@media only screen and (max-width: 900px)
-.home-header{
-  min-height: 240px;
+  text-align: center;
 }
 .home-header{
   height: 100%;
+  background-color: red;
 }
+.nav:before,
+.nav:after{
+  content: "";
+  display: table;
+}
+.nav:after{
+  clear: both;
+}
+.nav{
+  display: block;
+  width: 100%;
+  height: 70px;
+  border: 1px solid black;
+  *zoom: 1;
+}
+.button{
+  padding: 5px;
+  margin: 15px;
+}
+.button-nav{
+  float: right;
+  border: 1px solid orange;
+  color: orange;
+  font-size: 14px;
+  font-weight: 600;
+}
+.button-nav:hover{
+  background-color: orange;
+  color: #FFF;
+}
+.vertical{
+    vertical-align: middle;
+}
+.header-name{
+}
+.header-info{
+}
+/*
+@media only screen and (max-width: 500px){
+  .home-header{
+    height: 40%;
+    min-height: 240px;
+  }
+}
+
+
+@media only screen and (max-width: 900px){ 
+  .home-header{
+    height: 60%;
+  }
+}
+
+@media only screen and (min-width: 901px){
+  .home-header{
+    height: 100%;
+  }
+}
+*/
+
   /*
     Navigation
   */
+
 
 /*
   Home
