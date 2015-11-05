@@ -4,9 +4,11 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Bryan Bierce's Projects</title>
-      <!-- Latest compiled and minified Bootstrap CSS -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">
+      <!-- Fonts -->
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,400italic,600,600italic,700,700italic,800,800italic,300,300italic&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
+      <!-- Preload Scripts -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src='js/preload.js'></script>
       <!-- My CSS -->
     <link rel="stylesheet" href="css/main.css">
 
@@ -14,20 +16,23 @@
   <body class='projects'>
     <header class='header projects-header'>
       <nav class='nav projects-nav'>
-        <a href='index.html' class='button button-nav-projects'><img src='assets/me-profile-square-sm'></a>
-        <a href='blog.html' class='button button-nav-projects'>Blog</a>
+        <a href='blog.html' class='button button-nav button-nav-projects button-nav-text'>Blog</a>
+        <a href='index.html' class='button button-nav button-nav-projects button-nav-pic'><img class='nav-pic' src='assets/blue_bottle_square.jpg'></a>
       </nav>
-      <article class='vertical'>
-        <h1 class='header-name'>Bryan Bierce</h1>
-        <h2 class='header-info'>Engineering Student | Sales Trainer</h2>
+      <article class='vertical projects-head'>
+        <h1 class='header-name'>Projects</h1>
+        <h2 class='header-info'>Welcome to my projects home, you have already visited one of them. This entire <a href='index.html'>site</a> will be an ongoing project and will be undergoing constant revision as I learn and and find new things to implement on it. This page in particular will host links to any other projects which I work on and the random things I create to play with new technologies I learn.
+        </h2>
       </article>
     </header>
     <main class='projects-main'>
       <article class='projects-entry-preview'>
-        <h1 class='projects-entry-title'></h1>
+        <h1 class='projects-entry-title'><a href='http://www.drpaint.design'>drPaint.design</a></h1>
         <p class='projects-entry-summary'>
-
+          A site built to give a friend and Eugene, OR artist a place to showcase and give point of reference for his ongoing work.
         </p>
       </article>
     </main>
+    <script src='js/main.js'></script>
+    <footer class='projects-footer'></footer>
   </body>

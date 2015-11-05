@@ -4,6 +4,8 @@
 html{
   height: 100%;
   font-size: 17px;
+  font-family: "Open Sans", serif;
+  color: #282B28;
 }
 article, aside, details, figcaption, figure, 
 footer, header, hgroup, menu, nav, section {
@@ -36,15 +38,25 @@ table {
 */
 a{
   text-decoration: none;
+  color: #FA7434;
 }
+  /*
+
+        Home
+
+  */
 .header{
   width: 100%;
+  height: 100%;
   text-align: center;
   font-size: 1.5rem;
 }
 .home-header{
-  height: 100%;
-  background-color: red;
+  background: url(http://i.imgur.com/y8PRWgs.jpg) no-repeat center center fixed; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
   position: relative;
 }
 .nav:before,
@@ -57,42 +69,42 @@ a{
 }
 .nav{
   display: block;
-  width: 100%;
-  height: 70px;
-  border: 1px solid black;
+  max-width: 100%;
   *zoom: 1;
+  padding: 1em;
 }
 .button{
-  padding: 5px;
-  margin: 15px;
+  padding: .75em;
+  margin: 1em;
+  border: 1px solid #FA7434;
+  border-radius: 3px;
+  color: #FA7434;
+  font-weight: normal;
 }
 .button-nav{
   float: right;
-  border: 1px solid orange;
-  color: orange;
-  font-size: .5em;
-  font-weight: 600;
+  font-size: .6em;
 }
-.button-nav:hover{
-  background-color: orange;
+.button:hover{
+  background-color: #FA7434;
   color: #FFF;
 }
 .vertical{
   width: 100%;
-  background-color: green;
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
   text-align: center;
-  
+  color: #F4F7F5;
 }
 .header-name{
   font-size: 1.75em;
-  margin: 10px 0;
+  margin: 0 0 .5em 0;
 }
 .header-info{
-  font-size: .9em;
+  font-size: .85em;
   margin: 0px;
+  font-weight: 300;
 }
 .home-about:before,
 .home-about:after{
@@ -107,16 +119,113 @@ a{
   width: 100%;
 }
 .home-about{
-  width: 100%;
+  max-width: 67%;
+  margin: 0 auto;
+  padding: 2em;
 }
-.about-col-title{
+.about-title{
+  font-size: 1.75em;
+}
+.about-par{
+  font-size: .8em;
+  letter-spacing: .02em;
+  line-height: 1.5;
+  margin: 0 0 1.5em 0;
+}
+.home-contact:before,
+.home-contact:after{
+  content: "";
+  display: table;
+}
+.home-contact:after{
+  clear: both;
+}
+.home-contact{
+  width: 67%;
+  padding: 2em 0;
+  margin: .5em auto 6em auto;
+  border-top: 1px solid #D7DAE5;
+  border-bottom: 1px solid #D7DAE5;
+}
+.contact-pic{
+  width: 33%;
+  float: left;
+}
+.contact-profile-pic{
+  border-radius: 100%;
+  width: 100%;
+  margin: 0 auto;
+}
+.home-contact-info{
+  width: 55%;
+  float: right;
+  margin: 0 auto;
+}
+.contact-title{
+  font-size: 1.75em;
+  text-align: center;
+  margin: .25em 0 1.5em 0; 
+}
+.contact-links{
   text-align: center;
 }
-.col-3rd{
+.button-contact{
+  font-size: .65em;
+  margin: 1em;
+}
+.footer{
+  font-size: .75rem;
+  border-top: 1px solid #D7DAE5;
+  margin: 1em 0 0 0;
+  color: #D7DAE5;
+  padding: .25em .5em;
+}
+.copyright{
   float: left;
-  box-sizing: border-box;
-  padding: 15px;
-  width: 300px;
+  margin: 0;
+}
+.poweredBy{
+  float: right;
+  margin: 0;
+}
+  /*
+
+        Blog-landing
+
+  */
+.button-nav-text{
+
+}
+.button-nav-pic{
+  padding: 0;
+  border: none;
+  border-radius: 100%;
+}
+.nav-pic{
+  border-radius: 100%;
+  padding: 0;
+}
+.blog-head{
+  color: #282B28;
+}
+
+/*
+
+      Projects
+
+*/
+.projects-head{
+  color: #282B28;
+}
+.projects-main{
+  width: 67%;
+  margin: 2em auto;
+}
+.projects-entry-title:hover{
+  text-decoration: underline;
+}
+.projects-footer{
+  height: 200px;
 }
 
 @media only screen and (max-width: 900px){ 
@@ -126,80 +235,79 @@ a{
   .home-header{
     height: 60%;
   }
-  .col-3rd{
+  .nav{
+    padding: .65em;
+  }
+  .home-about{
+    max-width: 80%;
+    padding: 1.5em 0;
+  }
+  .home-contact{
+    width: 80%;
+  }
+  .contact-pic{
+    float: none;
+    width: 50%;
+    margin: 0 auto;
+  }
+  .home-contact-info{
     float: none;
     width: 100%;
+    margin-top: 1.5em;
   }
+
+  /*  Blog-landing  */
+
 }
+  
+
 
 @media only screen and (max-width: 500px){
   html{
     font-size: 13px;
   }
+
+  /* Home */
   .home-header{
     height: 40%;
     min-height: 240px;
   }
+  .button-nav{
+    border: none;
+  }
+  .nav{
+    padding: .4em;
+  }
+  .button-nav{
+    padding: .5em;
+  }
+  .home-about{
+    max-width: 90%;
+    padding: 0 0 1.25em 0;
+  }
+  .about-title{
+    font-size: 1.5em;
+    margin: .75em 0 .5em 0;
+  }
+  .home-contact{
+    width: 90%;
+  }
+  .contact-pic{
+    width: 66%;
+  }
+  .contact-links{
+    width: 100%;
+  }
+  .button-contact{
+    margin: .25em;
+  }
+
+  /* Blog-landing */
+
 }
 
 
-  /*
-    Navigation
-  */
 
-
-/*
-  Home
-*/
-  /*
-    Home-About
-  */
-
-
-
-
-  /*
-    Home-Contact
-  */
-
-
-
-
-/*
-
-End Home
-
-*/
-
-
-/*
-  Blog
-*/
-  /*
-    Blog-Main
-  */
-
-
-
-
-
-  /*
-    Blog-Article
-  */
-
-
-
-
-/*
-
-End Blog
-
-*/
-
-
-/*
-  Projects
-*/
 
 
 
