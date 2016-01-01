@@ -36,6 +36,7 @@ table {
 /*
   My CSS
 */
+
 a{
   text-decoration: none;
   color: #FA7434;
@@ -193,11 +194,6 @@ a:hover{
   float: right;
   margin: 0;
 }
-  /*
-
-        Blog-landing
-
-  */
 .button-nav-text{
 
 }
@@ -210,10 +206,123 @@ a:hover{
   border-radius: 100%;
   padding: 0;
 }
-.blog-head{
-  color: #282B28;
+  /*
+
+        Blog-landing
+
+  */
+
+.blog-header{
+  height: 33%;
+}
+.blog-main{
+  height: 67%;
+}
+.month:before,
+.month:after{
+  content: "";
+  display: table;
+}
+.month:after{
+  clear: both;
+}
+.month{
+  width: 50%;
+  height: 8em;
+  margin: auto;
+  border-top: 1px solid #AfAfAf;
+  border-bottom: 1px solid #AfAfAf;
+  position: relative;
+  font-size: 1.25rem;
+}
+.month-name{
+  float:left;
+  transform: rotate(-90deg);
+  margin: 0;
+  color: #D7DAE5;
+  position: absolute;
+  bottom: 35%;
+  font-size: 1em;
+}
+.post{
+  float: right;
+  width:80%;
+}
+.post-date{
+  float: left;
+  width: 10%;
+  font-size: .8em;
+  margin-top: 1em;
+}
+.post-name{
+  float: left;
+  width: 80%;
+  color:#FA7434;
+  font-size: .8em;
+  margin-top: 1em;
 }
 
+/*
+
+      Blog-Post
+
+*/
+.blog-header-post{
+  height: 0;
+}
+.button-nav-back{
+  float: left;
+}
+.blog-post-main{
+  margin-top: 7em;
+  margin-bottom: 3em;
+
+}
+.main-post{
+  width: 67%;
+  font-size: 1rem;
+  margin: auto;
+}
+.blog-post{
+  margin: auto;
+}
+.post-title{
+  text-align: center;
+  font-size: 1.5em;
+  margin-bottom: 1.5em;
+}
+.post-body{
+  font-size: .9sem;
+  line-height: 1.2em;
+}
+.post-img-center-div{
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+}
+.post-img-center{
+  width: 90%;
+}
+.body-post-link{
+
+}
+.code-block{
+  width: 65%;
+  margin: auto;
+  background-color: #dfdfdf;
+  border-radius: 5px;
+}
+.code-block p{
+  margin: 0 1em;
+  line-height: 1.05em;
+  padding: 3px;
+}
+.list-disc{
+  list-style-type: disc; 
+}
+.list-circle{
+  list-style-type: circle; 
+}
 /*
 
       Projects
@@ -262,6 +371,15 @@ a:hover{
   }
 
   /*  Blog-landing  */
+  .month{
+    width: 80%;
+  }
+  .main-post{
+    width: 80%;
+  }
+  .code-block{
+    width: 75%;
+  }
 
 }
   
@@ -308,7 +426,16 @@ a:hover{
   }
 
   /* Blog-landing */
+  .month{
+    min-width: 90%;
+  }
 
+  .main-post{
+    max-width: 90%;
+  }
+  .code-block{
+    width: 90%;
+  }
 }
 
 

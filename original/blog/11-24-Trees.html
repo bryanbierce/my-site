@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Bryan Bierce's Blog</title>
+      <!-- Fonts -->
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,400italic,600,600italic,700,700italic,800,800italic,300,300italic&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+      <!-- My CSS -->
+    <link rel="stylesheet" href="../css/main.css">
+  </head>
+  <body class='blog'>
+    <header class='header blog-header-post'>
+      <nav class='nav blog-nav'>
+        <a href='../blog.html' class=' button button-nav button-nav-back'><i class="fa fa-angle-left"></i>Blog</a>
+        <a href='../projects.html' class='button button-nav button-nav-post button-nav-text'>Projects</a>
+        <a href='../index.html' class='button button-nav button-nav-post button-nav-pic'><img class='nav-pic nav-pic-blog' src=''></a>
+      </nav>
+    </header>
+    <main class='blog-post-main'>
+      <section class='main-post'>
+        <article class='blog-post'>
+          <h1 class='post-title'>Help! I'm stuck in a tree and I can't get down!</h1>
+          <p class='post-body'>
+            &nbsp;&nbsp;What is a tree? Go ahead and picture one in your mind. Got one? Is it tall with many branches full of leaves or needles? Excellent, that will serve as excellent reference for this discussion. The <a class='blog-body-link' href='https://en.wikipedia.org/wiki/Tree_(data_structure)'>tree</a> which I want to talk about here is actually a simple and popular data structure used to store data in branching paths or relationships.
+          </p>
+          <p class='post-body'>
+            &nbsp;&nbsp;Two of the most approachable examples of a tree might be the <a class='blog-body-link' href='https://en.wikipedia.org/wiki/Family_tree'>family tree</a> and the <a class='blog-body-link' href='https://en.wikipedia.org/wiki/Decision_tree'>decision tree</a>. In general a tree starts from a root datum or state branching downward to the datum or states that could follow from the root. Visually they can be represented something like this:
+          </p>
+          <div class='post-img-center-div'>
+            <img class='post-img-center' src='../assets/tree.jpg'>
+          </div>
+          <p class='post-body'>
+            &nbsp;&nbsp;Applying the decision tree example to this visual we might say that our series of decisions starts with '1', the root. From '1' we might choose to go to point any of points '2', '3', '4' or '5', the children of our starting point. From each of these we then get again another array of choices. This method is frequently used in social sciences to model behavior around decision making and many of us might have made something just like it to model our family ancestry in grade school. In fact it is precisely these types of relationships amongst data that a tree is used to store in software. That is: any group of data whose datum branch off in series from a starting, or root, position. There becomes one key difference in how we tend to represent this visually from the nature of a tree in the forest and that is that our root tends to be on top and we branch our way down the tree.    
+          </p>
+          <p class='post-body'>
+            &nbsp;&nbsp;This brings us back to the title of this post. What if I have a collection of data which I want to store in this way, starting at the root and branching down in whatever way the data dictates. Let's extend our tree in the forest metaphor a little further. If we were stuck at the top of a tree a ladder should would be helpful. To climb down that ladder we would first step onto the ladder and take a step down. Then replacing our hands we can take another step down repeating this process of replacing our hands and taking a step until we reach the ground and pausing at any point on the later to pick an apple, should we decide we are hungry. 
+          </p>
+          <p class='post-body'>
+            &nbsp;&nbsp;In programming when taking a step in a problem results in a problem that is identical to the first it is common, and sometimes neccesary, to use a technique called recursion to repeat a process on a problem until there is no problem left or the nature of it changes. I will not go into a deep example of recursion in this post(maybe in the future) but you can find excellent examples <a class='blog-body-link' href='https://www.khanacademy.org/computing/computer-science/algorithms/recursive-algorithms/a/recursion'>here</a>, <a class='blog-body-link' href='http://www.ibm.com/developerworks/library/l-recurs/'>here</a> and <a class='blog-body-link' href='https://www.cs.umd.edu/class/fall2002/cmsc214/Tutorial/recursion.html'>here</a>. For now I will assume you know how to implement a recursive algorithm or that you have the wherewithal to learn how to do so.   
+          </p>
+          <p class='post-body'>
+            &nbsp;&nbsp;So we realize that climbing down our tree can be broken into a series of repeated steps and that we can accomplish this with a recursive algorithm. What then should that algorightm do? Well that will depend in large part on the data and what we want to do with it through out the tree. In <a class='blog-body-link' href='https://en.wikipedia.org/wiki/Pseudocode'>pseudocode</a> the general idea might look something like this:
+          </p>
+          <div class='code-block'>
+            <p>// Call treeClimb function on the root</p>
+            <p>&nbsp;&nbsp;// Do something to the data on the root</p>
+                <br>
+            <p>&nbsp;&nbsp;// Check if the root has any children(branches)</p>
+            <p>&nbsp;&nbsp;&nbsp;&nbsp;// If yes, loop over each child(branch)</p>
+            <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;// Call treeClimb function on the child(branch)<p>
+          </div>
+          <p class='post-body'>
+            &nbsp;&nbsp;In this simple example we call our functionon the root which procedes to do whatever we want to do on each branch to the root. It then looks to see if there are any children and if so it loops over those children and repeats the process on each child which in turn will search them for children and repeat on those. If you are new to recursion I recommend taking a pen and drawing out these steps, but you can see how this will then proceed down each branch and carry out some operation along every step. It is then not hard to imagine that you could specialize the task to be performed to search for a particular value and cary out more specific instructions. For example "Search for Dale and Martha Bierce and add child Bryan Bierce". This is where trees begin to get especially interesting.
+          </p>
+          <p class='post-body'>
+            &nbsp;&nbsp;The basic idea of a tree and its construction I have presented here really just scratches the surface. There are many varieties of trees being used for a myriad of different purposes depending on the data they store. Sorted trees take a set of data that is not neccesarily heirarchal in the way a family is, such as a set of numbers, and sort them as the tree constructs to allow easier look up. Self-balancing trees add an additional feature of adjusting their arrangment so that all branches are within some range of length or the same. The <a class='blog-body-link' href='https://en.wikipedia.org/wiki/Binary_tree'>binary tree</a> is a most excellent variant that limits the number of children to two and when sorted allows very fast( O(log<sub>2</sub>(n)) ) look up of any particular piece of data. I will not expound further on these variants today but keep your eyes here for an upcoming post about a tree I find particularily fascinating, the <a class='blog-body-link' href='https://en.wikipedia.org/wiki/B-tree'>B-tree</a>!
+          </p>
+        </article>
+        <article class='blog-recommendation'>
+          <h2 class='recommendation-title'></h2>
+          <ul class='recommendations'>
+          </ul>
+        </article>
+      </section>
+    </main>
+    <footer>
+      <article class='footer'>
+        <p class='copyright'>
+          <strong>Bryan Bierce</strong> &copy; All rights reserved
+        </p>
+        <p class='poweredBy'>
+          Made from scratch with love.
+        </p>
+      </article>
+    </footer>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src='../js/main.js'></script>
+  </body>

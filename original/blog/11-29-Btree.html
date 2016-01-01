@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Bryan Bierce's Blog</title>
+      <!-- Fonts -->
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,400italic,600,600italic,700,700italic,800,800italic,300,300italic&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+      <!-- My CSS -->
+    <link rel="stylesheet" href="../css/main.css">
+  </head>
+  <body class='blog'>
+    <header class='header blog-header-post'>
+      <nav class='nav blog-nav'>
+        <a href='../blog.html' class=' button button-nav button-nav-back'><i class="fa fa-angle-left"></i>Blog</a>
+        <a href='../projects.html' class='button button-nav button-nav-post button-nav-text'>Projects</a>
+        <a href='../index.html' class='button button-nav button-nav-post button-nav-pic'><img class='nav-pic nav-pic-blog' src=''></a>
+      </nav>
+    </header>
+    <main class='blog-post-main'>
+      <section class='main-post'>
+        <article class='blog-post'>
+          <h1 class='post-title'>Thar' B-Trees!</h1>
+          <p class='post-body'>
+            &nbsp;&nbsp;Recently I wrote an overview of a common data structure known as a tree and I mentioned that there were in fact many variants of trees being used for different purposes in production. Today I would like to talk a bit about a particularly powerful tree known as the <a class=’blog-post-link’ href=’ https://en.wikipedia.org/wiki/B-tree’>B-tree</a>. Since the b-tree is a comparatively complicated and nuanced tree I am going to avoid diving into code examples and instead focus on the two main things which anyone interested needs to know: what defines a b-tree and why is it important? So without further ado …
+          </p>
+          <h2 class='post-heading'>What is a B-Tree?</h2>
+          <p class='post-body'>
+            &nbsp;&nbsp;A b-tree is a tree that is sorted and self-balancing. The tree is sorted from least to greatest, increasing order. This means that a depth first traversal, one which travels down the branch before moving over to the next branch, should reach and act upon each value in the tree in increasing order. The model by which a b-tree balances is very strict. First and foremost, it is always of equal depth throughout the tree, that is, no branch should be longer or shorter than any other. This is not just because it creates a clean mental model, though it does, but because this allows it to achieve its primary purpose which we will talk about shortly. 
+          </p>
+          <p class='post-body'>
+            &nbsp;&nbsp;In addition to its evenness in depth a b-tree should be balanced by a few other rules all dictated by the trees <i>minimum degree</i> which is declared at the time the tree is created. The tree is built and balanced by the minimum degree, which we will call d, in the following ways:
+          </p>
+          <ul class='list-disc'>
+            <li>All nodes should have at least d-1 and at most 2d-1 values</li>
+            <ul class='list-circle'>
+              <li>The root is the only exception which may have 1 value</li>
+            </ul>
+            <li>Each node should have 1 child more than it has values. Ex: 2 values gets 3 children</li>
+            <ul class='list-circle'>
+              <li>This means that a node should have at least d children, if any, and 2d at most</li>
+            </ul>
+          </ul>
+          <p class='post-body'>
+            &nbsp;&nbsp;In putting all of this together I find this visual to be very helpful.
+          </p>
+          <div class='post-img-center-div'>
+            <img class='post-img-center' src='../assets/b-tree.jpg'>
+          </div>
+          <p class='post-body'>
+            &nbsp;&nbsp;This example is a b-tree which has been declared with a minimum degree, d, of 2. You can see how each node has at least 1 value because d-1 = (2) - 1 = 1 and at most 3 because 2d - 1 = 2(2) - 1 = 3. Similarily each node has exactly 1 child more than it has values, thus at least 2. I particularily like how this displays visually the relationship of the values in each child array to those in the parent. That is, it shows through it's alignment how the first child of the root contains sorted values which are stricly less than the first value in the root, which is 21. The second child, in turn, contains values that are stricly greater than 21 but less than the roots second value, 48. This, I think makes it much easier to see how the information should be traversed so as to maintain its increasing order.  
+          </p>
+          <h2 class='post-heading'>Why do they matter?</h2>
+          <p class='post-body'>
+            &nbsp;&nbsp;As I said the evenness in depth of the tree is central to allowing it to achieve its primary objective and that objective is speed. Imagine that we filled the b-tree above with values and were searching for a particular value, say 46. Begining at the root we can see that 46 is greater than the first value 21 so could 46 possibly be in the left most branch? Nope. All of those will be less than 21 because we know this tree is sorted. Sweet that saved some work! Now we look at the second value in the root, 48. Hmmm, 46 is less than 48 so it must be somewhere down the second branch. Awesome! No need to look down branches 3 or 4. Now we can move down to the first child on that second branch and we have immediately cut work involved in our search down by a factor of 4! So what happens when we continue the search on this branch? The exact same thing! We can again identify which child to continue our search in by comparing our target to the values at our current node and again divide our potential work by 4. That's a huge savings!
+          </p>
+          <p class='post-body'>
+            &nbsp;&nbsp;This division of work which allows a search to operate faster has the exact same effect on inserting and deleting new values into a b-tree. So, lets talk time complexity for a moment. What is the time complexity of operations on a b-tree? Well in this example it would be O(log<sub>4</sub>(n)) because we have 4 children at each level dividing our total options. In general however a b-tree is O(log<sub>2d</sub>(n)) every node in the tree has at most 2d children. 
+          </p>
+          <h2 class='post-heading'>Taking it further</h2>
+          <p class='post-body'>
+            Hopefully this has given you a general understanding of the form and function of a b-tree. Like I said I am not going to dive into code examples here since the fact is that there are several awesome resources for <a class='post-body-link' href='http://www.geeksforgeeks.org/b-tree-set-1-introduction-2/'>defining</a> and <a class='post-body-link' href='https://www.cs.usfca.edu/~galles/visualization/BTree.html'>visualizing</a> this very cool data structure readily available. If you are interested at trying your hand at creating a b-tree yourself I have created a <a class='blog-body-link' href='https://github.com/bryanbierce/LearnB-Trees'>repo</a> in JavaScript that contains the outline and a set of tests to guide you through the process. I definitely encourage you to challenge yourself with the task! 
+          </p>
+          <p class='post-body'>
+          <i>Note: This repo is still a work in progress. If you find a bug or think of a test you believe ought to be included I welcome any pull requests.</i>
+          </p>
+        </article>
+        <article class='blog-recommendation'>
+          <h2 class='recommendation-title'></h2>
+          <ul class='recommendations'>
+          </ul>
+        </article>
+      </section>
+    </main>
+    <footer>
+      <article class='footer'>
+        <p class='copyright'>
+          <strong>Bryan Bierce</strong> &copy; All rights reserved
+        </p>
+        <p class='poweredBy'>
+          Made from scratch with love.
+        </p>
+      </article>
+    </footer>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src='../js/main.js'></script>
+  </body>
